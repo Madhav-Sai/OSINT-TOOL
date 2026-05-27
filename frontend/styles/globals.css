@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #__next {
+  height: 100%;
+}
+
+/* Glass-Neon theme variables */
+:root{
+  --accent-cyan: #00e5ff;
+  --accent-magenta: #ff3ba8;
+  --accent-neon: linear-gradient(90deg,var(--accent-cyan),var(--accent-magenta));
+  --bg-900: #040617;
+  --bg-800: rgba(6,12,28,0.75);
+  --glass-blur: 10px;
+  --radius: 14px;
+  --neon-glow: 0 6px 24px rgba(0,229,255,0.12), 0 0 42px rgba(255,59,168,0.06);
+}
+
+body{
+  background: radial-gradient(1000px at 10% 10%, rgba(0,229,255,0.04), transparent),
+              radial-gradient(800px at 90% 80%, rgba(255,59,168,0.04), transparent),
+              linear-gradient(180deg, #030416 0%, #040617 100%);
+  color: #E6F4FF;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glass panel */
+.glass {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius);
+  box-shadow: var(--neon-glow);
+}
+
+.neon-btn {
+  background: var(--accent-neon);
+  background-size: 200% 200%;
+  color: #031026;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  transition: transform .12s ease, box-shadow .12s ease, background-position .6s ease;
+  box-shadow: 0 6px 18px rgba(0,229,255,0.12);
+}
+.neon-btn:hover { transform: translateY(-2px); background-position: 100% 0; }
+
+.glass-input { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); padding: 0.5rem; border-radius: 8px; }
+
+.meta-json { background: rgba(0,0,0,0.35); padding: 1rem; border-radius: 10px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace; font-size: 0.85rem; }
+
+.card-heading { font-weight: 700; font-size: 1.25rem; margin-bottom: 0.5rem; }
+
+/* Header layout */
+.site-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem }
+.site-title { font-size:2rem; font-weight:800; letter-spacing:0.4px }
+.site-sub { color: rgba(230,244,255,0.65); font-size:0.9rem }
+.sign-in { padding:0.5rem 0.8rem; border-radius:12px; background: linear-gradient(90deg,var(--accent-cyan),#6AE7FF); color:#021022; font-weight:700; box-shadow: 0 8px 30px rgba(0,229,255,0.08); }
+
+/* layout tweaks */
+.container { max-width:1100px; margin:0 auto }
+.two-col { display:grid; grid-template-columns: 1fr 1fr; gap:24px }
+.glass { padding:24px }

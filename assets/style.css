@@ -1,0 +1,354 @@
+/* ============================= */
+/* PRO THEME — Modern, clean UI */
+/* Uses Inter font and subtle elevation */
+/* ============================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root {
+  --bg-page:        #04040A; /* near-black */
+  --bg-accent:      radial-gradient(800px 200px at 10% 8%, rgba(0,240,255,0.06), transparent);
+  --glass-surface:  rgba(255,255,255,0.03);
+  --card:           rgba(255,255,255,0.02);
+  --border:         rgba(255,255,255,0.06);
+  --accent-cyan:    #00F0FF;
+  --accent-magenta: #FF2D95;
+  --accent-neon:    linear-gradient(90deg, #00F0FF, #FF2D95);
+  --neon-glow:      0 6px 40px rgba(0,240,255,0.12), 0 0 30px rgba(255,45,149,0.06);
+  --radius:         14px;
+  --text-main:      #F5FBFF;
+  --text-muted:     rgba(245,251,255,0.6);
+  --glass-blur:     10px;
+}
+
+html, body, .stApp {
+  background: var(--bg-page) !important;
+  background-image: var(--bg-accent);
+  color: var(--text-main) !important;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5 {
+  color: var(--text-main) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  text-shadow: 0 2px 18px rgba(0,240,255,0.04), 0 1px 8px rgba(255,45,149,0.02);
+}
+h1 { font-size: 2.0rem !important; }
+h2 { font-size: 1.45rem !important; }
+
+/* App header */
+.osint-header h1 { margin: 0; font-weight: 800 !important; color: var(--text-main) !important; }
+.osint-header p { margin:0; color: var(--text-muted) !important; font-size:0.95rem }
+
+/* Cards */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: var(--radius);
+  padding: 20px !important;
+  margin-bottom: 16px !important;
+  color: var(--text-main) !important;
+  backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--neon-glow) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.engine { color: var(--text-muted) !important; padding-left: 8px; line-height:1.7 }
+
+/* Inputs */
+input, textarea, .stTextInput input, .stNumberInput input {
+  background: rgba(255,255,255,0.02) !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  color: var(--text-main) !important;
+  border-radius: 12px !important;
+  padding: 12px !important;
+}
+input:focus, textarea:focus { box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 18px rgba(0,240,255,0.06) !important; border-color: var(--accent-cyan) !important; }
+::placeholder { color: rgba(245,251,255,0.35) !important; }
+
+/* Buttons */
+.stButton > button, button {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005)) !important;
+  color: var(--text-main) !important;
+  border: 1px solid rgba(255,255,255,0.03) !important;
+  padding: 10px 20px !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  transition: transform 160ms ease, box-shadow 160ms ease !important;
+}
+.stButton > button:hover { transform: translateY(-4px) !important; box-shadow: var(--neon-glow) !important; }
+
+/* Primary button */
+[data-testid="stBaseButton-primary"], .stButton > button[kind="primary"] {
+  background: var(--accent-neon) !important;
+  color: #03040A !important;
+  border: none !important;
+  box-shadow: 0 12px 40px rgba(0,240,255,0.18), 0 8px 30px rgba(255,45,149,0.12) !important;
+  text-shadow: 0 2px 6px rgba(255,255,255,0.02);
+}
+[data-testid="stBaseButton-primary"]:hover, .stButton > button[kind="primary"]:hover { transform: translateY(-3px) !important; box-shadow: 0 18px 60px rgba(0,240,255,0.22), 0 12px 40px rgba(255,45,149,0.14) !important; }
+
+/* Pills / Nav */
+div[data-testid="stPillsContainer"] { display:flex !important; gap:8px; flex-wrap:wrap }
+div[data-testid="stPillsContainer"] button {
+  background: linear-gradient(90deg, rgba(0,240,255,0.02), rgba(255,45,149,0.02)) !important;
+  color: var(--text-muted) !important; border: 1px solid rgba(255,255,255,0.03) !important;
+  padding: 8px 18px !important; border-radius: 999px !important; font-weight:600 !important;
+}
+div[data-testid="stPillsContainer"] button[aria-selected="true"] { background: linear-gradient(90deg, rgba(0,240,255,0.08), rgba(255,45,149,0.06)) !important; color: var(--text-main) !important; border-color: rgba(0,240,255,0.12) !important; box-shadow: 0 8px 40px rgba(0,240,255,0.06) }
+
+/* Sidebar */
+section[data-testid="stSidebar"] { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)) !important; border-right:1px solid rgba(255,255,255,0.03) }
+section[data-testid="stSidebar"] * { color: var(--text-muted) !important }
+
+/* Expander */
+[data-testid="stExpander"] { background: transparent !important; border: none !important }
+[data-testid="stExpander"] summary { background: transparent !important; color: var(--text-main) !important; padding:8px 0 }
+
+/* Metrics */
+[data-testid="stMetricValue"] { color: var(--text-main) !important; font-weight:800 !important }
+[data-testid="stMetricLabel"] { color: var(--text-muted) !important }
+
+/* Status colors */
+.red { color: #FF6B6B !important; font-weight:700 }
+.yellow { color: var(--accent) !important; font-weight:700 }
+.green { color: #4ADE80 !important; font-weight:700 }
+
+footer { visibility: hidden }
+
+/* Small responsive tweaks */
+@media (max-width: 900px) {
+  .osint-header h1 { font-size:1.5rem }
+  .card { padding: 14px }
+}
+.caution-footer {
+  margin-top: 40px;
+  border-top: 1.5px solid var(--border);
+  padding-top: 14px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+.caution-footer span { color: #0D3380; font-weight: 600; }
+
+/* ── Sherlock ── */
+.sherlock-hit {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  border-left: 4px solid var(--accent-2);
+  border-radius: 10px;
+  margin-bottom: 8px;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.5);
+}
+.sherlock-hit .sh-badge {
+  background: linear-gradient(90deg, var(--accent-2), #0064B4);
+  color: #021022;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  letter-spacing: 0.4px;
+}
+.sherlock-hit .sh-site {
+  color: var(--accent-2);
+  font-weight: 700;
+  font-size: 0.98rem;
+  min-width: 150px;
+}
+.sherlock-hit .sh-url a {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  text-decoration: none;
+  word-break: break-all;
+}
+.sherlock-hit .sh-url a:hover {
+  color: var(--accent) !important;
+  text-decoration: underline;
+}
+
+/* ── Hash Tool ── */
+.hash-result-box {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 10px;
+  padding: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  word-break: break-all;
+  margin-top: 8px;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.45);
+}
+.hash-match {
+  background: linear-gradient(90deg, rgba(74,222,128,0.06), rgba(74,222,128,0.02));
+  border: 1px solid rgba(74,222,128,0.18);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #4ADE80;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 12px;
+}
+.hash-nomatch {
+  background: linear-gradient(90deg, rgba(255,107,107,0.06), rgba(255,107,107,0.02));
+  border: 1px solid rgba(255,107,107,0.16);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #FF6B6B;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* ── Hub Card ── */
+.hub-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 8px 24px rgba(2,6,23,0.45);
+}
+.hub-card h4 { color: var(--text-main) !important; margin: 0 0 6px 0 !important; font-size: 1rem !important }
+.hub-card .hub-body { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6 }
+.hub-card a { color: var(--accent-2) !important; text-decoration: none !important }
+.hub-card a:hover { color: var(--accent) !important; text-decoration: underline !important }
+.hub-note {
+  background: linear-gradient(90deg, rgba(255,183,0,0.04), rgba(0,163,255,0.02));
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+/* ── Form Labels ── */
+.stPills > label,
+.stTextInput > label,
+.stSelectbox > label {
+  color: var(--text-muted) !important;
+  font-size: 0.88rem !important;
+  font-weight: 500 !important;
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear,
+input[type="password"]::-webkit-textfield-decoration-container {
+  display: none !important;
+}
+
+div[data-testid="InputInstructions"],
+div[class*="InputInstructions"],
+p[class*="inputInstructions"],
+small[class*="instructions"] {
+  position: relative !important;
+  right: auto !important;
+  left: 0 !important;
+  text-align: left !important;
+  padding-left: 4px !important;
+  max-width: 60% !important;
+}
+
+/* ── Code Block ── */
+.stCodeBlock button {
+  background: rgba(255,255,255,0.02) !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  color: var(--text-muted) !important;
+}
+.stCodeBlock button:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+}
+
+/* ── Page Header ── */
+.osint-header {
+  padding: 14px 0 10px 0;
+  margin-bottom: 4px;
+}
+.osint-header h1 {
+  font-size: 2.2rem !important;
+  margin: 0 0 6px 0;
+  background: var(--accent-neon);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  letter-spacing: -0.6px;
+  font-weight: 900 !important;
+  text-shadow: 0 6px 40px rgba(0,240,255,0.06);
+}
+.osint-header p {
+  color: var(--text-muted) !important;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+/* ── Streamlit alerts ── */
+div[data-testid="stAlert"] {
+  border-radius: 8px !important;
+}
+
+/* ── Detection badge (inline style override support) ── */
+.detect-badge {
+  background: linear-gradient(90deg, rgba(255,183,0,0.06), rgba(0,163,255,0.02));
+  border: 1px solid rgba(255,255,255,0.04);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 10px 16px;
+  color: var(--text-main);
+  font-size: 0.92rem;
+  margin-bottom: 8px;
+}
+
+/* ── Toggle — black border on the pill track only (not the label text) ── */
+[data-testid="stToggleSwitch"] {
+  border: 2px solid rgba(255,255,255,0.06) !important;
+  border-radius: 999px !important;
+  box-sizing: border-box !important;
+}
+[data-testid="stToggle"] label span[data-testid="stToggleSwitch"],
+[data-testid="stToggle"] label > div > div {
+  border: 2px solid rgba(255,255,255,0.06) !important;
+  border-radius: 999px !important;
+  box-sizing: border-box !important;
+}
+
+/* ── File Uploader — light theme ── */
+[data-testid="stFileUploader"] section,
+[data-testid="stFileUploaderDropzone"],
+div[data-testid="stFileUploaderDropzone"] {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)) !important;
+  border: 1.5px dashed rgba(255,255,255,0.04) !important;
+  border-radius: 10px !important;
+}
+[data-testid="stFileUploaderDropzone"] *,
+[data-testid="stFileUploader"] section * {
+  color: var(--text-muted) !important;
+}
+[data-testid="stFileUploaderDropzone"] svg {
+  color: var(--accent-2) !important;
+}
+[data-testid="stFileUploader"] section small,
+[data-testid="stFileUploader"] section span {
+  color: var(--text-muted) !important;
+}
+[data-testid="stFileUploader"] section button {
+  background: transparent !important;
+  color: var(--text-main) !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+}
+[data-testid="stFileUploader"] section button:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+}
